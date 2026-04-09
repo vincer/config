@@ -2,9 +2,9 @@ function append_path() {
     local value=$1
     local var=${2:-PATH}
 
-    for part in `echo ${!var} | tr ':' ' '`; do
+    for part in $(echo ${!var} | tr ':' ' '); do
         if [ "$part" = $value ]; then
-            return;
+            return
         fi
     done
 
@@ -21,7 +21,7 @@ function prepend_path() {
 
     # remove from path if already existing
     local newpath=''
-    for part in `echo ${!var} | tr ':' ' '`; do
+    for part in $(echo ${!var} | tr ':' ' '); do
         if [ "$part" != $value ]; then
             if [ -z "${newpath}" ]; then
                 newpath=${part}
@@ -39,7 +39,6 @@ function prepend_path() {
         export ${var}=${value}:${!var}
     fi
 }
-
 
 # Only mess with the PATH on login shells.
 # non-login shells will inherit from their login shell.
@@ -74,7 +73,7 @@ if shopt -q login_shell; then
         eval $($HOMEBREW_PREFIX/bin/brew shellenv)
     fi
 
-    prepend_path $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin PATH  ## To use brew's coreutils (e.g. readlink)
+    prepend_path $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin PATH ## To use brew's coreutils (e.g. readlink)
     prepend_path ~/.local/bin PATH
     prepend_path ~/bin PATH
 

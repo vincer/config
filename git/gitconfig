@@ -1,105 +1,110 @@
 [user]
-    name = vince rosso
-    useconfigonly = true
-    email = vince@zoox.com
+name = vince rosso
+useconfigonly = true
+email = vince@zoox.com
+	signingkey = /Users/vince/.ssh/id_ed25519.pub
 [advice]
-    statusHints = true
-    detachedHead = false
+statusHints = true
+detachedHead = false
 [core]
-    excludesfile = ~/.gitignore_global
-    ignorecase = true
-    whitespace = trailing-space,space-before-tab,tab-in-indent,tabwidth=3
-    pager = less -+F -+X
-    untrackedCache = true
-	preloadindex = true
-	fsmonitor = true
+excludesfile = ~/.gitignore_global
+ignorecase = true
+whitespace = trailing-space,space-before-tab,tab-in-indent,tabwidth=3
+pager = less -+F -+X
+untrackedCache = true
+preloadindex = true
+fsmonitor = true
 [index]
-	version=4
+version=4
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
 [alias]
-    co = checkout
-    up = pull
-    sui = submodule update --init
-    lg = log --name-status --date=local -8000
-    st = status --short --branch
-    aliases = "!git config -l | grep alias | cut -c 7-"
-    ksreview = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
-    br = branch -vv --sort='committerdate'
-    gi = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
-    merged = "!/bin/bash -ci 'git-merged'"
-    clean-merged = "!/bin/bash -ci 'git-clean-merged'"
-    push-remote = push --force-with-lease -u origin HEAD
-    pf = push --force-with-lease
-    del-remote = !git push --delete origin $(git rev-parse --abbrev-ref HEAD)
+co = checkout
+up = pull
+sui = submodule update --init
+lg = log --name-status --date=local -8000
+st = status --short --branch
+aliases = "!git config -l | grep alias | cut -c 7-"
+ksreview = "!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f"
+br = branch -vv --sort='committerdate'
+gi = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
+merged = "!/bin/bash -ci 'git-merged'"
+clean-merged = "!/bin/bash -ci 'git-clean-merged'"
+push-remote = push --force-with-lease -u origin HEAD
+pf = push --force-with-lease
+del-remote = !git push --delete origin $(git rev-parse --abbrev-ref HEAD)
 [grep]
-    lineNumber = true
+lineNumber = true
 [help]
-    autocorrect = 20
+autocorrect = 20
 [mergetool "diffmerge"]
-    cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-    trustExitCode = true
+cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+trustExitCode = true
 [mergetool "kdiff3mac"]
-    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
-    trustexitcode = false
+path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+trustexitcode = false
 [mergetool "kdiff3"]
-    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
 [mergetool "p4merge"]
-    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-    keepTemporaries = false
-    trustExitCode = false
-    keepBackup = false
+cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+keepTemporaries = false
+trustExitCode = false
+keepBackup = false
 [push]
-    default = upstream
-    followTags = true
+default = upstream
+followTags = true
+autoSetupRemote = true
 [rerere]
-    enabled = true
-    autoUpdate = true
+enabled = true
+autoUpdate = true
 [difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 [git-up "rebase"]
-    post-rebase-hook = "echo \"updating submodules on $1\"; git submodule update --init"
+post-rebase-hook = "echo \"updating submodules on $1\"; git submodule update --init"
 [diff]
-    algorithm = histogram
-    tool = kdiff3
+algorithm = histogram
+tool = kdiff3
 [merge]
-    tool = kdiff3
+tool = kdiff3
 [release "finish"]
-    nobackmerge = yes
+nobackmerge = yes
 [gitflow "release.finish"]
-    nobackmerge = yes
+nobackmerge = yes
 [fetch]
-    prune = true
+prune = true
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+insteadOf = https://github.com/
 [pull]
-    rebase = true
+rebase = true
 [rebase]
-    autoStash = true
+autoStash = true
 [stash]
-    showPatch = true
+showPatch = true
 [gc]
-    pruneExpire = 1 week ago
+pruneExpire = 1 week ago
 [hub]
-	host = git.zooxlabs.com
-	host = git.zooxlabs.com
+host = git.zooxlabs.com
 [pack]
-	threads = 36
-	writeBitmapHashCache = true
+threads = 36
+writeBitmapHashCache = true
 [url "git@git.zooxlabs.com:"]
-	insteadOf = https://git.zooxlabs.com/
+insteadOf = https://git.zooxlabs.com/
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
 [feature]
-	manyFiles = true
-	
+manyFiles = true
+
 [maintenance]
-	repo = /home/vince/driving
+repo = ~/driving
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
