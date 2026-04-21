@@ -2,7 +2,7 @@
 name = vince rosso
 useconfigonly = true
 email = vince@zoox.com
-	signingkey = /Users/vince/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519.pub
 [advice]
 statusHints = true
 detachedHead = false
