@@ -9,8 +9,8 @@ export EDITOR='emacs'
 # enable syntax highlighting for less
 export LESS=' -R '
 
-if command -v vimpager &> /dev/null; then
-    export PAGER=vimpager
+if command -v moor &> /dev/null; then
+    export PAGER=moor
 fi
 
 export FIGNORE=\~:CVS:.svn
