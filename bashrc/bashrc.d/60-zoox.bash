@@ -1,3 +1,5 @@
+export AWS_PROFILE=pd
+
 if [[ -f ~/driving/scripts/shell/zooxrc.sh ]]; then
     source ~/driving/scripts/shell/zooxrc.sh
 fi
