@@ -10,7 +10,6 @@ detachedHead = false
 excludesfile = ~/.gitignore_global
 ignorecase = true
 whitespace = trailing-space,space-before-tab,tab-in-indent,tabwidth=3
-pager = less -+F -+X
 untrackedCache = true
 preloadindex = true
 fsmonitor = true
