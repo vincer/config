@@ -11,7 +11,7 @@ export LESS=' -R '
 
 if command -v moor &> /dev/null; then
     export PAGER=moor
-    export MOOR="--style=solarized-dark --quit-if-one-screen --tab-size=4 --no-clear-on-exit"
+    export MOOR="--style=solarized-dark --quit-if-one-screen --tab-size=4 --no-clear-on-exit --wrap"
 fi
 
 export FIGNORE=\~:CVS:.svn
